@@ -1,0 +1,87 @@
+name: Daily Development Economics Update
+
+on:
+  schedule:
+    # Runs daily at 06:00 UTC (after most financial markets have closed)
+    - cron: '0 6 * * *'
+  
+  # Allows manual trigger from Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-economics-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 --break-system-packages
+      
+      - name: Fetch currency exchange rates
+        run: |
+          echo "=================================================="
+          echo "Fetching daily currency exchange rates..."
+          echo "=================================================="
+          python scripts/fetch_currency_rates.py
+        continue-on-error: false
+      
+      - name: Check commodity prices
+        run: |
+          echo "=================================================="
+          echo "Checking commodity price data..."
+          echo "=================================================="
+          python scripts/fetch_commodity_prices.py
+        continue-on-error: true
+      
+      - name: Check FAO Food Price Index
+        run: |
+          echo "=================================================="
+          echo "Checking FAO Food Price Index..."
+          echo "=================================================="
+          python scripts/fetch_food_prices.py
+        continue-on-error: true
+      
+      - name: Generate daily summary
+        run: |
+          echo "=================================================="
+          echo "Generating data summary..."
+          echo "=================================================="
+          python scripts/generate_summary.py
+        continue-on-error: true
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Development Economics Bot"
+      
+      - name: Commit and push data
+        run: |
+          git add data/
+          git commit -m "📊 Daily update: $(date +'%Y-%m-%d') - Currency rates, commodity prices, food index" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Display summary
+        run: |
+          echo "=================================================="
+          echo "✅ Daily Development Economics Update Complete"
+          echo "=================================================="
+          echo ""
+          echo "Data updated:"
+          echo "  💱 Currency exchange rates"
+          echo "  🛢️ Commodity prices (monthly check)"
+          echo "  🌾 FAO Food Price Index (monthly check)"
+          echo ""
+          echo "Building a historical database for development research!"
+          echo "=================================================="
