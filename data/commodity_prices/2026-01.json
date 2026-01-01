@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-01-01T06:41:10.225528",
+  "date": "2026-01",
+  "source": "World Bank Commodity Price Data (Pink Sheet)",
+  "note": "Monthly data - requires manual update or API when available",
+  "commodities": {
+    "energy": {
+      "crude_oil_brent": {
+        "unit": "$/bbl",
+        "price": null
+      },
+      "crude_oil_wti": {
+        "unit": "$/bbl",
+        "price": null
+      },
+      "crude_oil_dubai": {
+        "unit": "$/bbl",
+        "price": null
+      },
+      "natural_gas_us": {
+        "unit": "$/mmbtu",
+        "price": null
+      },
+      "natural_gas_europe": {
+        "unit": "$/mmbtu",
+        "price": null
+      },
+      "coal_australia": {
+        "unit": "$/mt",
+        "price": null
+      }
+    },
+    "agriculture": {
+      "wheat_us": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "rice_thailand": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "maize": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "soybeans": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "sugar": {
+        "unit": "\u00a2/kg",
+        "price": null
+      },
+      "coffee_arabica": {
+        "unit": "$/kg",
+        "price": null
+      },
+      "coffee_robusta": {
+        "unit": "$/kg",
+        "price": null
+      },
+      "tea_mombasa": {
+        "unit": "$/kg",
+        "price": null
+      },
+      "cocoa": {
+        "unit": "$/kg",
+        "price": null
+      }
+    },
+    "fertilizers": {
+      "dap": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "tsp": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "urea": {
+        "unit": "$/mt",
+        "price": null
+      }
+    },
+    "metals": {
+      "aluminum": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "copper": {
+        "unit": "$/mt",
+        "price": null
+      },
+      "iron_ore": {
+        "unit": "$/dmt",
+        "price": null
+      },
+      "gold": {
+        "unit": "$/toz",
+        "price": null
+      }
+    }
+  }
+}
