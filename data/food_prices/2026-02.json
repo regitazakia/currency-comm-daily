@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-02-01T06:57:15.347403",
+  "date": "2026-02",
+  "source": "FAO Food Price Index",
+  "url": "https://www.fao.org/worldfoodsituation/foodpricesindex/en/",
+  "update_schedule": "First Thursday of each month",
+  "indices": {
+    "overall_index": {
+      "value": null,
+      "unit": "points (2014-2016=100)"
+    },
+    "cereals": {
+      "value": null,
+      "unit": "points"
+    },
+    "vegetable_oils": {
+      "value": null,
+      "unit": "points"
+    },
+    "dairy": {
+      "value": null,
+      "unit": "points"
+    },
+    "meat": {
+      "value": null,
+      "unit": "points"
+    },
+    "sugar": {
+      "value": null,
+      "unit": "points"
+    }
+  },
+  "note": "Values need to be manually updated from FAO website"
+}
